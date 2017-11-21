@@ -1,0 +1,10 @@
+# python cruft
+*.pyc
+
+# emacs cruft
+.#*
+
+# vim cruft
+*.swp
+
+*.git_ignore_me*

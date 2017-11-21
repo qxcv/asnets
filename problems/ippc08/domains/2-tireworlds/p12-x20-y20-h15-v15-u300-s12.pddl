@@ -1,0 +1,1 @@
+../rectangle-tireworld/p12-x20-y20-h15-v15-u300-s12.pddl

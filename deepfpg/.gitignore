@@ -1,0 +1,14 @@
+/logs/
+*.params
+*.json
+*.log
+.done*
+last_id
+.cache/
+/tensorboard-rllab/
+tensorboard
+/snapshots/
+/hyperopt/
+/dfpg-env/
+/*-results/
+/*-results

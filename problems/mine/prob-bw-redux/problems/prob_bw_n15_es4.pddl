@@ -1,0 +1,6 @@
+(define (problem prob_bw_15_n15_es4_r1504)
+  (:domain prob_bw)
+  (:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 - block)
+  (:init (emptyhand) (on b1 b2) (on b2 b9) (on b3 b11) (on b4 b1) (on b5 b3) (on b6 b5) (on-table b7) (on b8 b15) (on b9 b6) (on b10 b14) (on b11 b13) (on-table b12) (on b13 b8) (on b14 b4) (on b15 b12) (clear b7) (clear b10))
+  (:goal (and (emptyhand) (on b1 b14) (on b2 b12) (on b3 b10) (on-table b4) (on b5 b7) (on-table b6) (on-table b7) (on b8 b13) (on b9 b8) (on b10 b2) (on b11 b3) (on b12 b15) (on b13 b1) (on-table b14) (on b15 b4) (clear b5) (clear b6) (clear b9) (clear b11)))
+)

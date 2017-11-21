@@ -1,0 +1,13 @@
+bash-2.01$ ./boxworld -?
+usage: ./boxworld [-b box-count]
+                  [-c city-count]
+                  [-dc drive-cost]
+                  [-fc fly-cost]
+                  [-dr delivery-reward]
+                  [-tlc truck-load-cost]
+                  [-tuc truck-unload-cost]
+                  [-plc plane-load-cost]
+                  [-puc plane-unload-cost]
+                  [-gr goal-reward]
+                  [-pn problem name]
+                  [-dn domain name]

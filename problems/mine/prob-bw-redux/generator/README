@@ -1,0 +1,7 @@
+Blocksworld generator.
+Author: Olivier Buffet upon a code by Blai Bonet (upon a code by John Asmuth)
+Needs Thiebaux and Slaney's bwstates generator (included)
+
+make
+usage: ./blocksworld <name-suffix> `./bwstates -n <#blocks> -s 2 -r <seed>`
+
