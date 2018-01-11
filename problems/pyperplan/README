@@ -9,3 +9,6 @@ pyperplan.
 
 NOTE: I've taken out all of the "unscalable" problems (e.g. PARC printer),
 leaving only problem families with a single domain shared among all instances.
+
+Original repo: https://bitbucket.org/malte/pyperplan
+Note that this is GPLv3!
