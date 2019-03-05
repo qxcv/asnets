@@ -17,7 +17,7 @@ TEST_MODEL_FLAGS = 'num_layers=1,hidden_size=16'
 USE_LMCUT_FEATURES = True
 
 # train + eval settings
-TIME_LIMIT_SECONDS = int(60 * 60 * 2)
+TIME_LIMIT_SECONDS = int(60 * 60 * 1)   # XXX turned down to 1h for monster
 EVAL_ROUNDS = 30
 ROUND_TURN_LIMIT = 300
 DET_EVAL = True

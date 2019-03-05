@@ -618,7 +618,7 @@ class SupervisedTrainer:
         # regularisation
         # TODO: make this configurable!
         weights = self.weight_manager.all_weights
-        l2_reg = 0.001 * sum(tf.nn.l2_loss(w) for w in weights)
+        l2_reg = 0.0 * sum(tf.nn.l2_loss(w) for w in weights)  # XXX disabled for monster
         loss_parts.append(('l2reg', l2_reg))
 
         loss = sum(p[1] for p in loss_parts)
