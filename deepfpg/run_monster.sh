@@ -8,5 +8,5 @@ for i in {1..5}; do
     ./run_experiment.py experiments.actprop_${i}l_h_add_no_lmcut experiments.monster > $out_name 2> $out_name &
     sleep 2
 done
-echo "Waiting for jobs to finish (this probably takes ~15 minutes). Check monster-out-*.txt for progress."
+echo "Waiting for jobs to finish (this probably takes 1h). Check monster-out-*.txt for progress."
 wait
