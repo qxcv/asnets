@@ -1,7 +1,0 @@
-(define (problem monster-n1)
-  (:domain monster)
-  (:init (robot-at start)
-    (conn start left-end) (conn start right-end) (conn left-end finish) (conn right-end finish)
-   )
-  (:goal (and (robot-at finish)))
-)

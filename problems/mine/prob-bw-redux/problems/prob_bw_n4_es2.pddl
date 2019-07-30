@@ -1,6 +1,0 @@
-(define (problem prob_bw_4_n4_es2_r402)
-  (:domain prob_bw)
-  (:objects b1 b2 b3 b4 - block)
-  (:init (emptyhand) (on-table b1) (on b2 b1) (on b3 b2) (on-table b4) (clear b3) (clear b4))
-  (:goal (and (emptyhand) (on-table b1) (on b2 b4) (on b3 b1) (on b4 b3) (clear b2)))
-)

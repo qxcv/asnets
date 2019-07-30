@@ -1,6 +1,0 @@
-(define (problem prob_bw_20_n20_es9_r2009)
-  (:domain prob_bw)
-  (:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20 - block)
-  (:init (emptyhand) (on b1 b18) (on b2 b7) (on b3 b4) (on b4 b5) (on b5 b19) (on b6 b20) (on b7 b17) (on b8 b13) (on b9 b3) (on b10 b15) (on b11 b6) (on b12 b11) (on b13 b1) (on b14 b16) (on b15 b8) (on b16 b12) (on-table b17) (on b18 b9) (on b19 b2) (on b20 b10) (clear b14))
-  (:goal (and (emptyhand) (on b1 b9) (on-table b2) (on b3 b2) (on-table b4) (on b5 b19) (on b6 b18) (on b7 b6) (on b8 b12) (on b9 b8) (on b10 b20) (on b11 b14) (on-table b12) (on b13 b3) (on b14 b10) (on b15 b13) (on-table b16) (on b17 b1) (on b18 b4) (on b19 b16) (on b20 b5) (clear b7) (clear b11) (clear b15) (clear b17)))
-)

@@ -1,1 +1,0 @@
-../rectangle-tireworld/p13-x30-y30-h8-v8-u100-s13.pddl
