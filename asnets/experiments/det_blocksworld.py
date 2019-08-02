@@ -1,0 +1,67 @@
+"""For experiments on deterministic blocksworld problems that I generated."""
+
+PDDL_DIR = '../problems/mine/det-bw-challenge/pddl/'
+COMMON_PDDLS = ['domain.pddl']
+TRAIN_PDDLS = [
+    'train/prob-blocks-blocks-nblk8-ntow1-seed270765476-seq0.pddl',
+    'train/prob-blocks-blocks-nblk8-ntow1-seed270765476-seq1.pddl',
+    'train/prob-blocks-blocks-nblk8-ntow1-seed270765476-seq2.pddl',
+    'train/prob-blocks-blocks-nblk8-ntow1-seed270765476-seq3.pddl',
+    'train/prob-blocks-blocks-nblk8-ntow1-seed270765476-seq4.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq0.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq1.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq2.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq3.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq4.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq5.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq6.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq7.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq8.pddl',
+    'train/prob-blocks-blocks-nblk8-seed236108287-seq9.pddl',
+    'train/prob-blocks-blocks-nblk9-seed129483654-seq0.pddl',
+    'train/prob-blocks-blocks-nblk9-seed129483654-seq1.pddl',
+    'train/prob-blocks-blocks-nblk9-seed129483654-seq2.pddl',
+    'train/prob-blocks-blocks-nblk9-seed129483654-seq3.pddl',
+    'train/prob-blocks-blocks-nblk9-seed129483654-seq4.pddl',
+    'train/prob-blocks-blocks-nblk10-seed614849806-seq0.pddl',
+    'train/prob-blocks-blocks-nblk10-seed614849806-seq1.pddl',
+    'train/prob-blocks-blocks-nblk10-seed614849806-seq2.pddl',
+    'train/prob-blocks-blocks-nblk10-seed614849806-seq3.pddl',
+    'train/prob-blocks-blocks-nblk10-seed614849806-seq4.pddl',
+]  # yapf: disable
+TRAIN_NAMES = None
+_TEST_RUNS = [
+    # test only on problems of 35-50 blocks, since baselines can crush even
+    # those
+    'prob-blocks-blocks-nblk35-seed2107726020-seq1.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq2.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq3.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq4.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq5.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq6.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq7.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq8.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq9.pddl',
+    'prob-blocks-blocks-nblk35-seed2107726020-seq10.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq1.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq2.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq3.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq4.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq5.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq6.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq7.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq8.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq9.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq10.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq11.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq12.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq13.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq14.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq15.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq16.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq17.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq18.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq19.pddl',
+    'prob-blocks-blocks-nblk50-seed1184714140-seq20.pddl',
+]  # yapf: disable
+TEST_RUNS = [([fname], None) for fname in _TEST_RUNS]

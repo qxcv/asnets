@@ -1,0 +1,7 @@
+(define (problem ex-bw-test-n14-s02-r105760)
+  (:domain exploding-blocksworld)
+  (:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 - block)
+  (:init (emptyhand) (on b1 b9) (on b2 b7) (on-table b3) (on b4 b10) (on b5 b11) (on b6 b12) (on b7 b6) (on b8 b4) (on b9 b2) (on-table b10) (on b11 b1) (on-table b12) (on b13 b14) (on-table b14) (clear b3) (clear b5) (clear b8) (clear b13) (no-detonated b1) (no-destroyed b1) (no-detonated b2) (no-destroyed b2) (no-detonated b3) (no-destroyed b3) (no-detonated b4) (no-destroyed b4) (no-detonated b5) (no-destroyed b5) (no-detonated b6) (no-destroyed b6) (no-detonated b7) (no-destroyed b7) (no-detonated b8) (no-destroyed b8) (no-detonated b9) (no-destroyed b9) (no-detonated b10) (no-destroyed b10) (no-detonated b11) (no-destroyed b11) (no-detonated b12) (no-destroyed b12) (no-detonated b13) (no-destroyed b13) (no-detonated b14) (no-destroyed b14) (no-destroyed-table))
+  (:goal (and (on-table b1) (on b2 b11) (on-table b3) (on b4 b6) (on b5 b7) (on b6 b5) (on-table b7) (on b8 b14) (on b9 b8) (on b10 b9) (on b11 b4) (on b12 b3) (on b13 b12) (on-table b14)  )
+)
+)

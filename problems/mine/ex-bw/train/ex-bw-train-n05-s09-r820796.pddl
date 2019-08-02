@@ -1,0 +1,7 @@
+(define (problem ex-bw-train-n05-s09-r820796)
+  (:domain exploding-blocksworld)
+  (:objects b1 b2 b3 b4 b5 - block)
+  (:init (emptyhand) (on b1 b4) (on b2 b5) (on-table b3) (on b4 b2) (on-table b5) (clear b1) (clear b3) (no-detonated b1) (no-destroyed b1) (no-detonated b2) (no-destroyed b2) (no-detonated b3) (no-destroyed b3) (no-detonated b4) (no-destroyed b4) (no-detonated b5) (no-destroyed b5) (no-destroyed-table))
+  (:goal (and (on b1 b5) (on b2 b3) (on b3 b1) (on-table b4) (on-table b5)  )
+)
+)

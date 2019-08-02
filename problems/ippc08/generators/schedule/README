@@ -1,0 +1,23 @@
+
+Making the binary
+"make" will generate the binary "schedule"
+
+Usage
+schedule -c number-of-classes -u maximum-timeline-for-a-packet -l average-plan-length
+
+From our experience 
+1 or 2 class problems are easy, e.g. "schedule -c 1 -u 5 -l 30"
+3 or 4 class problems are medium, "schedule -c 3 -u 5 -l 1000"
+5 or more class problems are hard, "schedule -c 5 -u 10 -l 2000"
+
+Examples
+We provide 5 easy problems, easy*, 5 medium problems, medium* 
+and 5 hard problems, hard*.
+These can easily be generated with "schedule -c n -u un" commands.
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+(define (problem blocks-nblk25-seed1428122178-seq81)
+    (:domain blocks)
+    (:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b15 b16 b17 b18 b19 b20 b21 b22 b23 b24 b25 - block)
+    (:init (handempty) (on b1 b11) (on b2 b22) (on b3 b12) (on b4 b14) (ontable b5) (on b6 b16) (ontable b7) (on b8 b13) (on b9 b17) (on b10 b23) (on b11 b18) (ontable b12) (on b13 b2) (on b14 b7) (on b15 b19) (on b16 b8) (ontable b17) (on b18 b25) (on b19 b6) (on b20 b10) (ontable b21) (on b22 b1) (on b23 b24) (on b24 b21) (on b25 b5) (clear b3) (clear b4) (clear b9) (clear b15) (clear b20))
+    (:goal (and (handempty) (on b1 b4) (on b2 b5) (on b3 b13) (ontable b4) (on b5 b25) (on b6 b7) (on b7 b3) (on b8 b23) (on b9 b10) (on b10 b12) (on b11 b2) (on b12 b22) (on b13 b1) (on b14 b9) (on b15 b20) (on b16 b19) (ontable b17) (on b18 b24) (on b19 b15) (on b20 b21) (on b21 b11) (on b22 b8) (ontable b23) (on b24 b16) (on b25 b6) (clear b14) (clear b17) (clear b18))))

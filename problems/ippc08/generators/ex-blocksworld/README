@@ -1,0 +1,7 @@
+Exploding blocksworld generator.
+Author: Blai Bonet upon a code by John Asmuth and domain by Michael Littman and David Weissman
+Needs Thiebaux and Slaney's bwstates generator (included)
+
+make
+usage: ./ex-blocksworld <name-suffix> <blocks-in-goal> `./bwstates -s 2 -n <#-blocks> -r <seed>`
+

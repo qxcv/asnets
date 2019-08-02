@@ -1,0 +1,5 @@
+#!/usr/bin/env python3
+from asnets.scripts.run_asnets import _main
+
+if __name__ == '__main__':
+    _main()

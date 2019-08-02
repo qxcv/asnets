@@ -1,0 +1,1 @@
+../triangle-tireworld/p10.pddl

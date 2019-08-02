@@ -1,0 +1,4 @@
+# shit to make spacemacs usable
+.clang_complete
+.dir-locals.el
+cscope.*

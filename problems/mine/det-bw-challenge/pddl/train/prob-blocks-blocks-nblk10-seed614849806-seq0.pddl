@@ -1,0 +1,5 @@
+(define (problem blocks-nblk10-seed614849806-seq0)
+    (:domain blocks)
+    (:objects b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 - block)
+    (:init (handempty) (ontable b1) (ontable b2) (on b3 b10) (on b4 b3) (on b5 b2) (on b6 b9) (on b7 b1) (on b8 b7) (on b9 b8) (on b10 b6) (clear b4) (clear b5))
+    (:goal (and (handempty) (on b1 b7) (ontable b2) (on b3 b4) (ontable b4) (on b5 b9) (ontable b6) (ontable b7) (on b8 b6) (on b9 b3) (on b10 b2) (clear b1) (clear b5) (clear b8) (clear b10))))

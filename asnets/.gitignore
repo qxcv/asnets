@@ -1,0 +1,44 @@
+/logs
+*.params
+*.so
+*.json
+*.log
+.done*
+last_id
+.cache
+/tensorboard-rllab
+tensorboard
+/snapshots
+/hyperopt
+/dfpg-env
+/fd
+/ssipp-solver
+/*-results
+# I'm using /convenience to store up-to-date sparse weights for
+# visualisation/pordding experiments
+/convenience
+/frames
+*.egg-info
+.socache
+# .jobqd is produced by job_scheduler
+.jobqd
+# nohup.out is produced by the nohup utility
+nohup.out
+out*.txt
+.eggs
+
+# this is a tiny "canned" call that I use to test teh algorithm; not sure if I
+# want to check it in yet
+simple_test*.sh
+
+# this gets produced by asnets.scripts.get_times (a planner benchmarking script)
+planner-times.html
+
+# some of the cluster scripts use this
+jobs.txt
+
+# my matching blocksworld bench script uses this
+/mbw-bench
+
+# notebook gitignores
+.ipynb_checkpoints
