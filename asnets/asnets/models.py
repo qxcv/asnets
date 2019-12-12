@@ -57,7 +57,8 @@ class PropNetworkWeights:
         self.dom_meta = state['dom_meta']
         self.hidden_sizes = state['hidden_sizes']
         self.extra_dim = state['extra_dim']
-        self.skip = state['skip']
+        # old network snapshots always had skip connections turned on
+        self.skip = state.get('skip', True)
         self._make_weights(state['prop_weights_np'], state['act_weights_np'])
 
     @staticmethod

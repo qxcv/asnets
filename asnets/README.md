@@ -3,13 +3,13 @@
 ## Installation
 
 Most of this ASNet implementation is written in Python, with a few simple C++
-extensions. In Ubuntu, you can install (hopefully) all of the necessary OS-level
-dependencies with the following command:
+extensions. In Ubuntu 18.04 (with Python 3.6), you can install all of the
+necessary OS-level dependencies with the following command:
 
 ```sh
 sudo apt install python3-numpy python3-dev python3-pip python3-wheel \
   python3-venv flex bison build-essential autoconf libtool git \
-  libboost-all-dev
+  libboost-all-dev cmake
 ```
 
 Installation of the Python components is easiest to carry out in
@@ -21,12 +21,14 @@ commands should create an appropriate environment and install all dependencies:
 ```sh
 cd /path/to/this/dir/for/asnets
 # make virtual environment for packages in "asnet-env" dir
-virtualenv -p "$(which python3)" asnet-env
+python3 -m venv asnet-env
 # Activate so that we can use packages. You will need to do this each time you
 # want to run ASNets in a new shell; you can see whether the environment has
 # been activated by looking at the beginning of your shell prompt, which (in
 # bash) should start with "(asnet-env)" so long as you're in the environment.
 source asnet-env/bin/activate
+# sometimes necessary to avoid "invalid command: 'bdist_wheel'"
+pip install --upgrade pip
 # install all dependencies & install ASNets package
 pip install -e .
 ```

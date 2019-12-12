@@ -41,14 +41,24 @@ def try_install_fd():
     if not has_fd():
         print("Installing FD")
         if not osp.exists(FD_DIR):
+            # these commands check out a specific revision of fd, per
+            # https://stackoverflow.com/a/3489576
+            subprocess.run(["git", "init", "fd"], check=True, cwd=ABOVE_DIR)
+            subprocess.run([
+                "git", "remote", "add", "origin",
+                "https://github.com/aibasel/downward.git"
+            ], check=True, cwd=FD_DIR)
             subprocess.run(
-                # this is a fairly recent version of FD (June 2019)
-                [
-                    "hg", "clone", "http://hg.fast-downward.org", "fd", "-u",
-                    "98c4bdb9cee9"
-                ],
-                check=True,
-                cwd=ABOVE_DIR)
+                ["git", "fetch", "origin",
+                 # most recent revision last time this script was updated
+                 # (March 2022)
+                 "f42dfc992df1ce5a65312c0eeebaf7236e8ffdf8"],
+                check=True, cwd=FD_DIR)
+            subprocess.run(
+                ["git", "reset", "--hard", "FETCH_HEAD"],
+                check=True, cwd=FD_DIR)
+
+            # now build FD
             subprocess.run(["python", "build.py", "-j16"],
                            check=True,
                            cwd=FD_DIR)
@@ -119,8 +129,10 @@ def run_fd_raw(planner,
 
     # now setup output dir & write problem text
     os.makedirs(result_dir, exist_ok=True)
-    domain_path = osp.join(result_dir, 'domain.pddl')
-    problem_path = osp.join(result_dir, 'problem.pddl')
+    domain_bn = 'domain.pddl'
+    problem_bn = 'problem.pddl'
+    domain_path = osp.join(result_dir, domain_bn)
+    problem_path = osp.join(result_dir, problem_bn)
     with open(domain_path, 'w') as dom_fp, open(problem_path, 'w') as prob_fp:
         dom_fp.write(domain_txt)
         prob_fp.write(problem_txt)
@@ -159,7 +171,7 @@ def run_fd_raw(planner,
         cost_prefs_bound = "[hff,hlm],preferred=[hff,hlm],bound={bound}" \
             .format(bound=cost_bound_s)
         cmdline.extend([
-            domain_path, problem_path, "--evaluator",
+            domain_bn, problem_bn, "--evaluator",
             "hlm=lmcount(lm_rhw(reasonable_orders=true),pref={pref})".format(
                 pref=True), "--evaluator", "hff=ff()", "--search",
             ("iterated([lazy_greedy({cost_prefs}),"
@@ -172,7 +184,7 @@ def run_fd_raw(planner,
         # LAMA-first:
         # fast-downward.py --alias lama-first ${dom} ${prob}
         cmdline.extend([
-            domain_path, problem_path, "--evaluator",
+            domain_bn, problem_bn, "--evaluator",
             ("hlm=lmcount(lm_factory=lm_rhw(reasonable_orders=true),"
              "transform=adapt_costs(one),pref=false)"), "--evaluator",
             "hff=ff(transform=adapt_costs(one))", "--search",
@@ -182,22 +194,22 @@ def run_fd_raw(planner,
     elif planner == 'lama-w5':
         # the second (i.e fourth-last) stage of LAMA-2011 (lazy WA* with W=5)
         cmdline.extend([
-            domain_path,
-            problem_path,
+            domain_bn,
+            problem_bn,
             *make_wlama_args(5),
         ])
     elif planner == 'lama-w3':
         # the third (also third-last) stage of LAMA-2011 (lazy WA* with W=3)
         cmdline.extend([
-            domain_path,
-            problem_path,
+            domain_bn,
+            problem_bn,
             *make_wlama_args(3),
         ])
     elif planner == 'lama-w2':
         # the second-last stage of LAMA-2011 (lazy WA* with W=2)
         cmdline.extend([
-            domain_path,
-            problem_path,
+            domain_bn,
+            problem_bn,
             *make_wlama_args(2),
         ])
     elif planner == 'lama-w1':
@@ -208,8 +220,8 @@ def run_fd_raw(planner,
         # search). That means that it ends up with much better solutions than
         # you can get in just one application of the planner!
         cmdline.extend([
-            domain_path,
-            problem_path,
+            domain_bn,
+            problem_bn,
             *make_wlama_args(1),
         ])
     elif planner == 'astar-lmcut':
@@ -217,18 +229,18 @@ def run_fd_raw(planner,
         # fast-downward.py ${dom} ${prob} --search "astar(lmcut())"
         # (similar template for astar or gbf with other heuristics)
         cmdline.extend([
-            domain_path, problem_path, "--search",
+            domain_bn, problem_bn, "--search",
             "astar(lmcut(),bound={bound})".format(bound=cost_bound_s)
         ])
     elif planner == 'astar-lmcount':
         # inadmissible variant of above
         cmdline.extend([
-            domain_path, problem_path, "--search",
+            domain_bn, problem_bn, "--search",
             "astar(lmcount(lm_rhw()),bound={bound})".format(bound=cost_bound_s)
         ])
     elif planner == 'astar-hadd':
         cmdline.extend([
-            domain_path, problem_path, "--search",
+            domain_bn, problem_bn, "--search",
             "astar(add(),bound={bound})".format(bound=cost_bound_s)
         ])
     elif planner == 'gbf-lmcut':
@@ -236,12 +248,12 @@ def run_fd_raw(planner,
         # generalised policy may be trivial for ASNets, using only action
         # landmarks!)
         cmdline.extend([
-            domain_path, problem_path, "--search",
+            domain_bn, problem_bn, "--search",
             "eager(single(lmcut()),bound={bound})".format(bound=cost_bound_s)
         ])
     elif planner == 'gbf-hadd':
         cmdline.extend([
-            domain_path, problem_path, "--search",
+            domain_bn, problem_bn, "--search",
             "eager(single(add()),bound={bound})".format(bound=cost_bound_s)
         ])
     else:
