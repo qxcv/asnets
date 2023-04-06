@@ -33,6 +33,54 @@ pip install --upgrade pip
 pip install -e .
 ```
 
+If the above instructions don't work, it is recomended you try one of the
+alternative methods of installation listed below.
+
+
+### Anaconda Installation
+
+It is possible that, in newer systems, manual installation of Python3.6 will
+result in missing packages which will render ASNet's installation impossible.
+
+To avoid this, it is recommended to use [Anaconda](https://www.anaconda.com/products/distribution)
+to create an environment with the correct Python version. After installing
+Anaconda, the virtual environment can be easily created with:
+
+```sh
+conda create -n asnet-venv python=3.6
+```
+
+and then activated with:
+
+```sh
+conda activate asnet-venv
+```
+
+From there, installation of the package can be done as previously stated
+using the `pip install -e .` command.
+
+
+### Docker Installation
+
+A Docker container with the correct specifications to run ASNets can be
+built with the following commands:
+
+```sh
+sudo apt install docker.io
+
+cd /path/to/this/dir/for/asnets
+docker build -t asnets-bionic -f asnets-bionic.dockerfile .
+```
+
+After the Docker was sucessfully built, you can acess it by running the
+following:
+```sh
+docker run -i --rm --mount type=bind,source=/tmp/,target=/home/asnets_user/shared -t asnets-bionic /bin/bash
+```
+
+The Docker environment will already have the ASNets' package installed!
+
+------
 ## Running manually
 
 `run_asnets.py` is the entry point for the trainer. `python run_asnets.py
@@ -43,10 +91,10 @@ blocksworld problems:
 ```sh
 # Train on p01-p06; the `{1,2,3,4,5,6}*.pddl` Bash syntax
 # is a concise way of including all relevant PDDL files (except domain)
-CUDA_VISIBLE_DEVICES="" ./run_asnets -m actprop \
-   -O 'num_layers=2,hidden_size=16' --supervised \
+CUDA_VISIBLE_DEVICES="" ./run_asnets \
    ../problems/ippc08/domains/ex-blocksworld/domain.pddl \
-   ../problems/ippc08/domains/ex-blocksworld/p0{1,2,3,4,5,6}*.pddl
+   ../problems/ippc08/domains/ex-blocksworld/p0{1,2,3,4,5,6}*.pddl \
+   --num-layers 2 --hidden_size 16
 ```
 
 `CUDA_VISIBLE_DEVICES=""` was included to prevent `run_asnets.py` from using a
@@ -54,12 +102,10 @@ GPU; the GPU is much slower than the CPU for this network!
 
 Here's a quick rundown of the most important options:
 
-- `--supervised` trains the network in supervised mode. Omitting this flag will
-  make the program train in RL mode (which doesn't work right now).
-- `-m actprop -O 'num_layers=2,hidden_size=16'` controls the network
-  architecture. You can also use `-m simple -O num_layers=2,hidden_size=16` to
-  train a fully connected network (although I'm not sure whether this still
-  works right now).
+- Path do the PDDL domain and problem definitions. This are positional arguments,
+and therefore should always come first!
+- `--num_layers 2` controls the number of layers of the architecture.
+- `--hidden_size` controls the size of each hidden latent representation of the network.
 - `-p <problem name>` can be used to restrict the problems used for training.
   For instance, `-p problem1 -p problem2 -p problem3` will force `run_asnets.py`
   to only train on the problems named `problem1`, `problem2`, and `problem3`, even
@@ -92,7 +138,7 @@ CUDA_VISIBLE_DEVICES="" ./run_experiment experiments.actprop_3l experiments.ex_b
 
 This will train the network for a fixed amount of time (it was 2hrs originally,
 but check the configuration in `actprop_3l.py` for the most recent value), then
-tests it. All results and intermediate working are written to
+test it. All results and intermediate working are written to
 `experiments-results/P<something>` (the subdirectory name should be reasonably
 obvious).
 
